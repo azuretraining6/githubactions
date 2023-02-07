@@ -12,10 +12,6 @@ provider "azurerm" {
   # If you're using version 1.x, the "features" block is not allowed.
   #version = "~>2.0"
   features {}
-  subscription_id = "08394a73-8682-4082-9837-da1953841647"
-  client_id       = "d7afcc7b-4c04-4863-953d-d8c82628a74d"
-  client_secret   = "IQ-8Q~QBZKLjwSaZUaMptF3NvfeM9bGWt55gNcvM"
-  tenant_id       = "fac4f30d-a2ea-4dda-9871-1dc986c702bd"
 }
  
 data "azurerm_client_config" "current" {}
