@@ -1,9 +1,9 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "githubactions"
+    resource_group_name  = "privatedbs"
     storage_account_name = "mpkgithubact001"
     container_name       = "tfstatedevops"
-    key                  = "terraformgithubexample.tfstate"
+    key                  = "2w2eNcrzE/Djf+4OGo6mJ6LDCGnzrojZ3GKAzMoB1rxomGehCr3Dg5QHJMY8AF6uyeO5WNaHsy35+AStY2cDwA=="
   }
 }
  
