@@ -1,10 +1,12 @@
 terraform {
+  /*
   backend "azurerm" {
     resource_group_name  = "privatedbs"
     storage_account_name = "mpkgithubact001"
     container_name       = "tfstatedevops"
     key                  = "2w2eNcrzE/Djf+4OGo6mJ6LDCGnzrojZ3GKAzMoB1rxomGehCr3Dg5QHJMY8AF6uyeO5WNaHsy35+AStY2cDwA=="
   }
+  */
 }
  
 provider "azurerm" {
@@ -18,15 +20,15 @@ data "azurerm_client_config" "current" {}
  
 #Create Resource Group
 resource "azurerm_resource_group" "githubactions" {
-  name     = "githubactions"
-  location = "eastus2"
+  name     = "privatedbs"
+  location = "eastus"
 }
  
 #Create Virtual Network
 resource "azurerm_virtual_network" "vnet" {
   name                = "githubactions-vnet"
   address_space       = ["192.168.0.0/16"]
-  location            = "eastus2"
+  location            = "eastus"
   resource_group_name = azurerm_resource_group.githubactions.name
 }
  
