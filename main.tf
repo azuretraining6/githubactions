@@ -23,18 +23,3 @@ resource "azurerm_resource_group" "githubactions" {
   location = "eastus"
 }
  
-#Create Virtual Network
-resource "azurerm_virtual_network" "vnet" {
-  name                = "githubactions-vnet"
-  address_space       = ["192.168.0.0/16"]
-  location            = "eastus"
-  resource_group_name = azurerm_resource_group.githubactions.name
-}
- 
-# Create Subnet
-resource "azurerm_subnet" "subnet" {
-  name                 = "subnet"
-  resource_group_name  = azurerm_resource_group.githubactions.name
-  virtual_network_name = azurerm_virtual_network.vnet.name
-  address_prefix       = "192.168.1.0/24"
-}
