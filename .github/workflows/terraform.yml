@@ -72,10 +72,10 @@ jobs:
     - name: Login to Azure
       run: |
         echo "Creating Azure CLI profile..."
-        echo ${ARM_CLIENT_ID}
-        echo ${ARM_CLIENT_SECRET}
-        echo ${ARM_TENANT_ID}
-        az login --service-principal -u ${ARM_CLIENT_ID} -p ${ARM_CLIENT_SECRET} --tenant ${ARM_TENANT_ID}
+        echo ${AZURE_AD_CLIENT_ID}
+        echo ${AZURE_AD_CLIENT_SECRET}
+        echo ${AZURE_AD_TENANT_ID}
+        az login --service-principal -u ${AZURE_AD_CLIENT_ID} -p ${AZURE_AD_CLIENT_SECRET} --tenant ${AZURE_AD_TENANT_ID}
   
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
