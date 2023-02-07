@@ -16,11 +16,10 @@ provider "azurerm" {
   features {}
 }
  
-data "azurerm_client_config" "current" {}
  
 #Create Resource Group
 resource "azurerm_resource_group" "githubactions" {
-  name     = "privatedbs"
+  name     = "privatedbs2"
   location = "eastus"
 }
  
