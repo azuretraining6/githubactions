@@ -10,7 +10,7 @@ terraform {
 provider "azurerm" {
   # The "feature" block is required for AzureRM provider 2.x.
   # If you're using version 1.x, the "features" block is not allowed.
-  version = "~>2.0"
+  #version = "~>2.0"
   features {}
   subscription_id = "08394a73-8682-4082-9837-da1953841647"
   client_id       = "d7afcc7b-4c04-4863-953d-d8c82628a74d"
