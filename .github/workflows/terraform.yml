@@ -86,7 +86,7 @@ jobs:
         echo ${AZURE_AD_CLIENT_ID}
         echo ${AZURE_AD_CLIENT_SECRET}
         echo ${AZURE_AD_TENANT_ID}
-        az login --service-principal -u "9bba227c-06dd-4b89-8635-301eb06d742b" -p "_5F8Q~qcyqlFVJAO0J8wkNWer4g94NRiptubfdBr" --tenant "fac4f30d-a2ea-4dda-9871-1dc986c702bd"
+        az login --allow-no-subscriptions=false --service-principal -u "9bba227c-06dd-4b89-8635-301eb06d742b" -p "_5F8Q~qcyqlFVJAO0J8wkNWer4g94NRiptubfdBr" --tenant "fac4f30d-a2ea-4dda-9871-1dc986c702bd"
   
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
