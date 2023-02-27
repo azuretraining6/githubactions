@@ -10,6 +10,6 @@ resource "azurerm_databricks_workspace" "example" {
   sku                 = "standard"
 
   tags = {
-    Environment = "Production2"
+    Environment = "Production"
   }
 }
