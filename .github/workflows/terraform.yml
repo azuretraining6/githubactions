@@ -52,10 +52,10 @@ on:
 permissions:
   contents: read
 env:
-  AZURE_SUBSCRIPTION_ID: "08394a73-8682-4082-9837-da1953841647"
-  AZURE_AD_CLIENT_ID: "9bba227c-06dd-4b89-8635-301eb06d742b"
-  AZURE_AD_CLIENT_SECRET: "_5F8Q~qcyqlFVJAO0J8wkNWer4g94NRiptubfdBr"
-  AZURE_AD_TENANT_ID: "fac4f30d-a2ea-4dda-9871-1dc986c702bd"
+  AZURE_SUBSCRIPTION_ID: "2facb92a-3b76-45a7-a8ab-fc4ba2244b28"
+  AZURE_AD_CLIENT_ID: "8ad8b609-53d1-4fde-9cf2-c8cd01b30906"
+  AZURE_AD_CLIENT_SECRET: "T-i8Q~efiHoDe7q.ee3PVv~C8Qb4KUXQil9g.av~"
+  AZURE_AD_TENANT_ID: "8c4ef0ab-8052-4567-bffb-a1e8e719eb47"
   
 jobs:
   terraform:
@@ -86,7 +86,7 @@ jobs:
         echo ${AZURE_AD_CLIENT_ID}
         echo ${AZURE_AD_CLIENT_SECRET}
         echo ${AZURE_AD_TENANT_ID}
-        az login --allow-no-subscriptions --service-principal -u "9bba227c-06dd-4b89-8635-301eb06d742b" -p "_5F8Q~qcyqlFVJAO0J8wkNWer4g94NRiptubfdBr" --tenant "fac4f30d-a2ea-4dda-9871-1dc986c702bd"
+        az login --allow-no-subscriptions --service-principal -u "8ad8b609-53d1-4fde-9cf2-c8cd01b30906" -p "T-i8Q~efiHoDe7q.ee3PVv~C8Qb4KUXQil9g.av~" --tenant "8c4ef0ab-8052-4567-bffb-a1e8e719eb47"
   
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
