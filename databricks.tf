@@ -13,3 +13,17 @@ resource "azurerm_databricks_workspace" "example" {
     Environment = "Production2"
   }
 }
+resource "databricks_workspace_conf" "this" {
+  custom_config = {
+    "enableIpAccessLists": true
+  }
+}
+resource "databricks_ip_access_list" "allowed-list" {
+  label = "allow_in"
+  list_type = "ALLOW"
+  ip_addresses = [
+    "1.2.3.0/24",
+    "1.2.5.0/24"
+  ]
+  depends_on = [databricks_workspace_conf.this]
+}
