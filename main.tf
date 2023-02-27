@@ -15,6 +15,8 @@ provider "azurerm" {
   #version = "~>2.0"
   features {}
 }
+provider "databricks" {
+}
  
  
 #Create Resource Group
