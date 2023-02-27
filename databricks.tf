@@ -13,7 +13,10 @@ resource "azurerm_databricks_workspace" "example" {
     Environment = "Production2"
   }
 }
-resource "databricks_workspace_conf" "this" {
+provider "databricks" {
+  host = azurerm_databricks_workspace.example.workspace_url
+}
+resource "databricks_workspace_conf" "example" {
   custom_config = {
     "enableIpAccessLists": true
   }
@@ -25,5 +28,5 @@ resource "databricks_ip_access_list" "allowed-list" {
     "1.2.3.0/24",
     "1.2.5.0/24"
   ]
-  depends_on = [databricks_workspace_conf.this]
+  depends_on = [databricks_workspace_conf.example]
 }
