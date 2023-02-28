@@ -10,7 +10,7 @@ terraform {
   
   required_providers {
     databricks = {
-      source = "databrickslabs/databricks"
+      source = "databricks/databricks"
     }
   }
 }
