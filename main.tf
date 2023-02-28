@@ -1,10 +1,10 @@
 terraform {
   
   backend "azurerm" {
-    resource_group_name  = "baserg"
-    storage_account_name = "mpktfstate001"
-    container_name       = "tfstate"
-    key                  = "07RM4OwVhorc4Fyczj84t49b5JxXhK4aXis4YaFJ+CA7qS3yTAHoMZE/KtuFCPU0dqtvEKMXrkXo+AStTH+23g=="
+    # resource_group_name  = "baserg"
+    # storage_account_name = "mpktfstate001"
+    # container_name       = "tfstate"
+    # key                  = "07RM4OwVhorc4Fyczj84t49b5JxXhK4aXis4YaFJ+CA7qS3yTAHoMZE/KtuFCPU0dqtvEKMXrkXo+AStTH+23g=="
   }
   
   
