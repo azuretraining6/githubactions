@@ -10,6 +10,18 @@ resource "azurerm_databricks_workspace" "dbs1" {
     Environment = "dev"
   }
 }
+
+
+resource "azurerm_databricks_workspace" "dbs2" {
+  name                = "ngkdatabrickstest22"
+  resource_group_name = azurerm_resource_group.githubactions.name
+  location            = azurerm_resource_group.githubactions.location
+  sku                 = "premium"
+
+  tags = {
+    Environment = "dev"
+  }
+}
 provider "databricks" {
   azure_workspace_resource_id = azurerm_databricks_workspace.dbs1.id
 }
