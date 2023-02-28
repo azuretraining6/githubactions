@@ -23,7 +23,8 @@ resource "databricks_ip_access_list" "allowed-list" {
   list_type = "ALLOW"
   ip_addresses = [
     "1.2.3.0/24",
-    "1.2.5.0/24"
+    "1.2.5.0/24",
+    "40.77.92.112/32"
   ]
   depends_on = [databricks_workspace_conf.new]
 }
