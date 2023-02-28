@@ -56,6 +56,10 @@ env:
   AZURE_AD_CLIENT_ID: "8ad8b609-53d1-4fde-9cf2-c8cd01b30906"
   AZURE_AD_CLIENT_SECRET: "T-i8Q~efiHoDe7q.ee3PVv~C8Qb4KUXQil9g.av~"
   AZURE_AD_TENANT_ID: "8c4ef0ab-8052-4567-bffb-a1e8e719eb47"
+  ARM_CLIENT_ID: "8ad8b609-53d1-4fde-9cf2-c8cd01b30906"
+  ARM_CLIENT_SECRET: "T-i8Q~efiHoDe7q.ee3PVv~C8Qb4KUXQil9g.av~"
+  ARM_TENANT_ID: "8c4ef0ab-8052-4567-bffb-a1e8e719eb47"
+  ARM_SUBSCRIPTION_ID: "2facb92a-3b76-45a7-a8ab-fc4ba2244b28"
   
 jobs:
   terraform:
