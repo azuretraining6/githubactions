@@ -1,12 +1,12 @@
 terraform {
-  /*
+  
   backend "azurerm" {
-    resource_group_name  = "privatedbs"
-    storage_account_name = "mpkgithubact001"
-    container_name       = "tfstatedevops"
-    key                  = "2w2eNcrzE/Djf+4OGo6mJ6LDCGnzrojZ3GKAzMoB1rxomGehCr3Dg5QHJMY8AF6uyeO5WNaHsy35+AStY2cDwA=="
+    resource_group_name  = "baserg"
+    storage_account_name = "mpktfstate001"
+    container_name       = "tfstate"
+    key                  = "07RM4OwVhorc4Fyczj84t49b5JxXhK4aXis4YaFJ+CA7qS3yTAHoMZE/KtuFCPU0dqtvEKMXrkXo+AStTH+23g=="
   }
-  */
+  
   
   required_providers {
     databricks = {
@@ -24,7 +24,7 @@ provider "azurerm" {
 
 #Create Resource Group
 resource "azurerm_resource_group" "githubactions" {
-  name     = "privatedbs2"
+  name     = "privatedbs21"
   location = "eastus"
 }
  
