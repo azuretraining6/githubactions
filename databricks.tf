@@ -1,12 +1,9 @@
-resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
-  location = "eastus"
-}
 
-resource "azurerm_databricks_workspace" "example" {
-  name                = "databricks-test"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
+
+resource "azurerm_databricks_workspace" "dbs1" {
+  name                = "ngkdatabrickstest"
+  resource_group_name = azurerm_resource_group.githubactions.name
+  location            = azurerm_resource_group.githubactions.location
   sku                 = "standard"
 
   tags = {
