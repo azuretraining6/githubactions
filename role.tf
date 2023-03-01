@@ -16,22 +16,6 @@ resource "azurerm_role_definition" "rgscope" {
 
   assignable_scopes = [
     data.azurerm_resource_group.primary.id, # /subscriptions/00000000-0000-0000-0000-000000000000
-  ]
-}
-
-resource "azurerm_role_definition" "rgscope2" {
-  name        = "readaccess-uhn"
-  scope       = azurerm_resource_group.githubactions2.id
-  description = "This is a custom role created via Terraform"
-
-  permissions {
-    actions     = ["Microsoft.Resources/subscriptions/resourceGroups/read",
-                "Microsoft.Resources/subscriptions/resourcegroups/resources/read"
-                  ]
-    not_actions = []
-  }
-
-  assignable_scopes = [
-    azurerm_resource_group.githubactions2.id, # /subscriptions/00000000-0000-0000-0000-000000000000
+    azurerm_resource_group.githubactions2.id
   ]
 }
