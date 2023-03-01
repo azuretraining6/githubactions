@@ -16,6 +16,6 @@ resource "azurerm_role_definition" "rgscope" {
 
   assignable_scopes = [
     data.azurerm_resource_group.primary.id, # /subscriptions/00000000-0000-0000-0000-000000000000
-    azurerm_resource_group.githubactions2.id
+    azurerm_resource_group.githubactions2.id,
   ]
 }
