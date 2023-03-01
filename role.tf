@@ -21,8 +21,8 @@ resource "azurerm_role_definition" "rgscope" {
   ]
 }
 resource "azurerm_role_assignment" "example" {
-  name               = "uncteamassign"
+  name               = "roletestuser"
   scope              = azurerm_resource_group.githubactions2.id
   role_definition_id = azurerm_role_definition.rgscope.role_definition_resource_id
-  principal_id       = data.azurerm_client_config.example.object_id
+  principal_id       = "cd73807f-c0eb-4b22-8aba-3a2a98aff65a"
 }
