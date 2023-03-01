@@ -33,3 +33,7 @@ resource "azurerm_resource_group" "githubactions" {
   location = "eastus"
 }
  
+resource "azurerm_resource_group" "githubactions2" {
+  name     = "privatedbs212"
+  location = "eastus"
+} 
