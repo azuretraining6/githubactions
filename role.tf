@@ -8,7 +8,9 @@ resource "azurerm_role_definition" "rgscope" {
   description = "This is a custom role created via Terraform"
 
   permissions {
-    actions     = ["Microsoft.Resources/subscriptions/resourceGroups/read"]
+    actions     = ["Microsoft.Resources/subscriptions/resourceGroups/read",
+                "Microsoft.Resources/subscriptions/resourcegroups/resources/read"
+                  ]
     not_actions = []
   }
 
