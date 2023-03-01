@@ -26,7 +26,7 @@ resource "azurerm_role_assignment" "example" {
   principal_id       = "cd73807f-c0eb-4b22-8aba-3a2a98aff65a"
 }
 
-resource "azurerm_role_assignment" "example" {
+resource "azurerm_role_assignment" "example2" {
   scope              = azurerm_resource_group.githubactions2.id
   role_definition_id = azurerm_role_definition.rgscope.role_definition_resource_id
   principal_id       = "30cc995d-94e1-418d-aa3c-0f7a7234d581"
