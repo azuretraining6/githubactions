@@ -19,7 +19,7 @@ resource "azurerm_role_definition" "rgscope" {
   ]
 }
 
-resource "azurerm_role_definition" "rgscope" {
+resource "azurerm_role_definition" "rgscope2" {
   name        = "readaccess-uhn"
   scope       = azurerm_resource_group.githubactions2.id
   description = "This is a custom role created via Terraform"
