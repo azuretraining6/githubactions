@@ -19,3 +19,8 @@ resource "azurerm_role_definition" "rgscope" {
     azurerm_resource_group.githubactions2.id,
   ]
 }
+resource "azurerm_role_assignment" "example" {
+  name               = "uncteamassign"
+  scope              = azurerm_resource_group.githubactions2.id
+  role_definition_id = azurerm_role_definition.rgscope.role_definition_resource_id
+}
