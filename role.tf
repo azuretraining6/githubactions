@@ -27,7 +27,7 @@ resource "azurerm_role_definition" "rgscope" {
 # }
 
 resource "azurerm_role_assignment" "example2" {
-  scope              = azurerm_resource_group.githubactions2.id
+  scope              = azurerm_resource_group.githubactions1.id
   role_definition_id = azurerm_role_definition.rgscope.role_definition_resource_id
-  principal_id       = "30cc995d-94e1-418d-aa3c-0f7a7234d581"
+  principal_id       = azurerm_data_factory.example.identity
 }
