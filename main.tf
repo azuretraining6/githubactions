@@ -12,6 +12,9 @@ terraform {
     databricks = {
       source = "databricks/databricks"
     }
+    azuread = {
+      source  = "registry.terraform.io/hashicorp/azuread"
+      
   }
 }
 
