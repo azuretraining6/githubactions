@@ -31,3 +31,9 @@ resource "azurerm_role_assignment" "example2" {
   role_definition_id = azurerm_role_definition.rgscope.role_definition_resource_id
   principal_id       = azurerm_data_factory.example.identity[0].principal_id
 }
+
+resource "azurerm_role_assignment" "example3" {
+  scope              = azurerm_resource_group.githubactions.id
+  role_definition_id = azurerm_role_definition.rgscope.role_definition_resource_id
+  principal_id       = data.azuread_service_principal.databrickssp.application_id
+}
