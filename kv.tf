@@ -1,5 +1,5 @@
 resource "azurerm_key_vault" "kv1" {
-  name                       = "ngktestkv451701"
+  name                       = "ngktestkv451702"
   location                   = azurerm_resource_group.githubactions.location
   resource_group_name        = azurerm_resource_group.githubactions.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
@@ -52,8 +52,8 @@ resource "azurerm_key_vault_secret" "clientid" {
   key_vault_id = azurerm_key_vault.kv1.id
 }
 
-resource "azurerm_key_vault_secret" "subid" {
-  name         = "subscriptionid"
+resource "azurerm_key_vault_secret" "subid2" {
+  name         = "subscriptionid2"
   value        = data.azurerm_client_config.current.subscription_id
   key_vault_id = azurerm_key_vault.kv1.id
 }
