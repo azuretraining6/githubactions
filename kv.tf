@@ -25,20 +25,20 @@ resource "azurerm_key_vault" "kv1" {
   }
 }
 
-# resource "azurerm_key_vault_access_policy" "kvpolicy1" {
-#   key_vault_id = azurerm_key_vault.kv1.id
-#   tenant_id    = data.azurerm_client_config.current.tenant_id
-#   object_id    = "cc965947-26a5-4211-aca0-f4351dc72bf7"
+resource "azurerm_key_vault_access_policy" "kvpolicy1" {
+  key_vault_id = azurerm_key_vault.kv1.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = "cc965947-26a5-4211-aca0-f4351dc72bf7"
 
 
-#   key_permissions = [
-#     "Get",
-#   ]
+  key_permissions = [
+    "Get",
+  ]
 
-#   secret_permissions = [
-#     "Get",
-#   ]
-# }
+  secret_permissions = [
+    "Get",
+  ]
+}
 
 resource "azurerm_key_vault_secret" "secret1" {
   name         = "secret-sauce"
