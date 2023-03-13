@@ -1,4 +1,4 @@
-# module "service_principal_password_01" {
-#   source               = "git::https://github.com/uhg-internal/azuread_service_principal_password.git?ref=v0.0.1"
-#   service_principal_id = module.azuread_service_principal_01.output.id
-# }
+resource "azuread_application_password" "appsecret" {
+  application_object_id = azuread_application.appreg.object_id
+  
+}
