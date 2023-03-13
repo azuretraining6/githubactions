@@ -4,7 +4,7 @@
 data "azurerm_client_config" "example" {
 }
 resource "azurerm_role_definition" "rgscope" {
-  name        = "readaccess-uhn"
+  name        = "readaccess2-uhn"
   scope       = azurerm_resource_group.githubactions2.id
   description = "This is a custom role created via Terraform"
 
