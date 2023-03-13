@@ -33,10 +33,10 @@ provider "azurerm" {
 }
 
 #Create Resource Group
-# resource "azurerm_resource_group" "githubactions" {
-#   name     = "privatedbs21"
-#   location = "eastus"
-# }
+resource "azurerm_resource_group" "githubactions" {
+  name     = "privatedbs21"
+  location = "eastus"
+}
  
 resource "azurerm_resource_group" "githubactions2" {
   name     = "privatedbs212"

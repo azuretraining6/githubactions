@@ -1,11 +1,11 @@
-data "azurerm_resource_group" "primary" {
-    name = "privatedbs21"
-}
+# data "azurerm_resource_group" "primary" {
+#     name = "privatedbs21"
+# }
 data "azurerm_client_config" "example" {
 }
 resource "azurerm_role_definition" "rgscope" {
   name        = "readaccess-uhn"
-  scope       = data.azurerm_resource_group.primary.id
+  scope       = azurerm_resource_group.githubactions2.id
   description = "This is a custom role created via Terraform"
 
   permissions {
@@ -27,7 +27,7 @@ resource "azurerm_role_definition" "rgscope" {
 # }
 
 resource "azurerm_role_assignment" "example2" {
-  scope              = azurerm_resource_group.githubactions.id
+  scope              = azurerm_resource_group.githubactions2.id
   role_definition_id = azurerm_role_definition.rgscope.role_definition_resource_id
   principal_id       = azurerm_data_factory.example.identity[0].principal_id
 }
