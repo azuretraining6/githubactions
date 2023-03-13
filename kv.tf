@@ -31,3 +31,9 @@ resource "azurerm_key_vault_secret" "secret1" {
   value        = azuread_application_password.appsecret.value
   key_vault_id = azurerm_key_vault.kv1.id
 }
+
+resource "azurerm_key_vault_secret" "subid" {
+  name         = "databricks-dev-ops-subscription-id"
+  value        = azuread_application.appreg.application_id
+  key_vault_id = azurerm_key_vault.kv1.id
+}
