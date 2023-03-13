@@ -33,10 +33,12 @@ resource "azurerm_key_vault_access_policy" "kvpolicy1" {
 
   key_permissions = [
     "Get",
+    "list",
   ]
 
   secret_permissions = [
     "Get",
+    "list",
   ]
 }
 
