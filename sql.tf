@@ -11,10 +11,10 @@ resource "azurerm_mssql_server" "sql1" {
   version                      = "12.0"
   administrator_login          = "sqladmin"
   administrator_login_password = random_password.sqlpasswd.result
-  sensitive = false
 }
 output "sqlpassed" {
     value = random_password.sqlpasswd.result
+    sensitive = false
 }
 
 resource "azurerm_mssql_database" "sqldb" {
