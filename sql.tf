@@ -23,7 +23,7 @@ resource "azurerm_mssql_database" "sqldb" {
   collation      = "SQL_Latin1_General_CP1_CI_AS"
   license_type   = "LicenseIncluded"
   max_size_gb    = 1
-  read_scale     = true
+  read_scale     = false
   sku_name       = "S0"
   zone_redundant = false
 
