@@ -14,7 +14,7 @@ resource "azurerm_mssql_server" "sql1" {
 }
 output "sqlpassed" {
     value = random_password.sqlpasswd.result
-    sensitive = false
+    sensitive = true
 }
 
 resource "azurerm_mssql_database" "sqldb" {
