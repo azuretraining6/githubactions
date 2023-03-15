@@ -5,7 +5,7 @@ resource "random_password" "sqlpasswd" {
 }
 
 resource "azurerm_mssql_server" "sql1" {
-  name                         = "ngk-sqlserver"
+  name                         = "ngk41sqlserver"
   resource_group_name          = azurerm_resource_group.githubactions.name
   location                     = azurerm_resource_group.githubactions.location
   version                      = "12.0"
