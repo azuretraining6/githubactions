@@ -65,3 +65,10 @@ resource "azurerm_key_vault_secret" "tenantid" {
   value        = data.azurerm_client_config.current.tenant_id
   key_vault_id = azurerm_key_vault.kv1.id
 }
+
+
+resource "azurerm_key_vault_secret" "sqlpasswd" {
+  name         = "sqlpasswd"
+  value        = random_password.sqlpasswd.result
+  key_vault_id = azurerm_key_vault.kv1.id
+}
