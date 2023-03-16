@@ -6,3 +6,25 @@ resource "azurerm_data_factory" "example" {
     type = "SystemAssigned"
   }
 }
+
+resource "azurerm_monitor_diagnostic_setting" "example" {
+  name               = "adfngklog"
+  target_resource_id = azurerm_data_factory.example.id
+  eventhub_name = azurerm_eventhub.example.name
+
+  enabled_log {
+    category = "AuditEvent"
+
+    retention_policy {
+      enabled = false
+    }
+  }
+
+  metric {
+    category = "AllMetrics"
+
+    retention_policy {
+      enabled = false
+    }
+  }
+}
