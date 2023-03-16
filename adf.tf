@@ -11,6 +11,7 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
   name               = "adfngklog"
   target_resource_id = azurerm_data_factory.example.id
   eventhub_name = azurerm_eventhub.example.name
+  eventhub_authorization_rule_id = azurerm_eventhub_authorization_rule.example.id
 
   enabled_log {
     category = "AuditEvent"
@@ -28,3 +29,4 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
     }
   }
 }
+
