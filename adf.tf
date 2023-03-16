@@ -15,7 +15,7 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
   
 
   enabled_log {
-    category = "AuditEvent"
+    category = "Pipeline runs log"
 
     retention_policy {
       enabled = false
