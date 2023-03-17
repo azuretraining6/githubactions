@@ -15,7 +15,7 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
   
 
   enabled_log {
-    category = "allLogs"
+    category = "PipelineRuns"
 
     retention_policy {
       enabled = false
