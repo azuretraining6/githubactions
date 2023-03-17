@@ -34,6 +34,6 @@ resource "azurerm_eventhub_authorization_rule" "example" {
   resource_group_name = azurerm_resource_group.githubactions.name
 
   listen = true
-  send   = false
-  manage = false
+  send   = true
+  manage = true
 }
