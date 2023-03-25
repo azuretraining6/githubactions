@@ -19,6 +19,12 @@ resource "azurerm_key_vault" "ngkvault" {
 
     secret_permissions = [
       "Get",
+      "Set",
+      "Get",
+      "Delete",
+      "Purge",
+      "Recover"
+
     ]
 
     storage_permissions = [
