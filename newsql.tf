@@ -41,7 +41,7 @@ resource "azurerm_mssql_database" "phmdb" {
  }
 
  resource "random_password" "password" {
-  length           = 16
+  length           = 12
   special          = true
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
