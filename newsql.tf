@@ -34,9 +34,8 @@ resource "azurerm_mssql_database" "phmdb" {
   server_id                   = azurerm_mssql_server.phmsqlserver.id
   collation                   = "SQL_Latin1_General_CP1_CI_AS"
   create_mode                 = "Default"
-  sku_name                    = "Basic"
+  sku_name                    = "S0"
   min_capacity                = 0.5
   max_size_gb = 0.5
   auto_pause_delay_in_minutes = 60
  }
-random
