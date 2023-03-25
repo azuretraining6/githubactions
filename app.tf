@@ -12,7 +12,7 @@ resource "azurerm_windows_web_app" "webapp1" {
   location            = azurerm_resource_group.githubactions.location
   service_plan_id     = azurerm_service_plan.plan1.id
   identity {
-    type = "ManagedServiceIdentityTypeSystemAssigned"
+    type = "SystemAssigned"
   }
   site_config {}
   auth_settings {
