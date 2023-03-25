@@ -2,7 +2,7 @@ resource "azurerm_service_plan" "plan1" {
   name                = "ngkauthtestwebplan01"
   resource_group_name = azurerm_resource_group.githubactions.name
   location            = azurerm_resource_group.githubactions.location
-  sku_name            = "P1v2"
+  sku_name            = "B1"
   os_type             = "Windows"
 }
 
