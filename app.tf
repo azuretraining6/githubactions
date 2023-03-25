@@ -17,6 +17,7 @@ resource "azurerm_windows_web_app" "webapp1" {
   site_config {}
   auth_settings {
     enabled = true
+    runtime_version     = "~2"
     unauthenticated_client_action = "AllowAnonymous"
     active_directory {
       client_id = "8ad8b609-53d1-4fde-9cf2-c8cd01b30906"
