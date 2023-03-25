@@ -17,15 +17,12 @@ resource "azurerm_windows_web_app" "webapp1" {
   site_config {}
   auth_settings {
     enabled = true
-    runtime_version     = "~2"
+    runtime_version     = "~1"
     unauthenticated_client_action = "AllowAnonymous"
     active_directory {
       client_id = "8ad8b609-53d1-4fde-9cf2-c8cd01b30906"
     }
     default_provider = "AzureActiveDirectory"
 
-  }
-  lifecycle {
-    ignore_changes  = [auth_settings, sticky_settings, app_settings]
   }
 }
