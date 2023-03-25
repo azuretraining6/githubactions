@@ -39,3 +39,9 @@ resource "azurerm_mssql_database" "phmdb" {
   max_size_gb = 2
   auto_pause_delay_in_minutes = 60
  }
+
+ resource "random_password" "password" {
+  length           = 16
+  special          = true
+  override_special = "!#$%&*()-_=+[]{}<>:?"
+}
