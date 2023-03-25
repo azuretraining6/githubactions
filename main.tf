@@ -31,6 +31,9 @@ provider "azurerm" {
   subscription_id = "2facb92a-3b76-45a7-a8ab-fc4ba2244b28"
 
 }
+provider "random" {
+  
+}
 
 #Create Resource Group
 resource "azurerm_resource_group" "githubactions" {
