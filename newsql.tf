@@ -14,14 +14,14 @@ resource "azurerm_mssql_server" "phmsqlserver" {
   resource_group_name          = azurerm_resource_group.githubactions.name
   location                     = var.location
   version                      = "12.0"
-  administrator_login          = var.SQLServerAdminLogin
+  administrator_login          = var.AzureSQLAdminName
   administrator_login_password = var.SQLServerAdminPassword
   minimum_tls_version          = "1.2"
   public_network_access_enabled = false
 
   azuread_administrator {
-    login_username = var.AzureSQLAdminName
-    object_id      = var.AzureSQLAdminId
+    login_username = "mpkengineer243"
+    object_id      = "cc965947-26a5-4211-aca0-f4351dc72bf7"
   }
 
   identity {
