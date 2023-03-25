@@ -11,7 +11,7 @@ variable "location" {
 }
 resource "azurerm_mssql_server" "phmsqlserver" {
   name                         = "mssql-phm01ngk-test"
-  resource_group_name          = data.azurerm_resource_group.githubactions.name
+  resource_group_name          = azurerm_resource_group.githubactions.name
   location                     = var.location
   version                      = "12.0"
   administrator_login          = var.SQLServerAdminLogin
