@@ -36,6 +36,6 @@ resource "azurerm_mssql_database" "phmdb" {
   create_mode                 = "Default"
   sku_name                    = "Basic"
   min_capacity                = 4
-  max_size_gb                 = 250
+  max_size_gb                 = 4
   auto_pause_delay_in_minutes = 60
  }
