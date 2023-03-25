@@ -25,4 +25,7 @@ resource "azurerm_windows_web_app" "webapp1" {
     default_provider = "AzureActiveDirectory"
 
   }
+  lifecycle {
+    ignore_changes  = [auth_settings, sticky_settings, app_settings]
+  }
 }
