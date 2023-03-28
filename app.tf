@@ -16,6 +16,7 @@ resource "azurerm_windows_web_app" "webapp1" {
   }
   site_config {}
   auth_settings_v2 {
+  login {}
     auth_enabled = true
     runtime_version     = "~2"
     unauthenticated_action = "AllowAnonymous"
