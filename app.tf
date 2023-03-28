@@ -21,8 +21,10 @@ resource "azurerm_windows_web_app" "webapp1" {
     runtime_version     = "~2"
     unauthenticated_action = "AllowAnonymous"
     active_directory_v2 {
-      client_id = "8ad8b609-53d1-4fde-9cf2-c8cd01b30906"
+      client_id = "d6b2cd92-9903-4b15-9990-f9860144949e"
       tenant_auth_endpoint = "https://login.microsoft.com/237b86ae-2cdc-4162-9134-3ce68635da27/v2.0"
+      clientSecretSettingName = "MICROSOFT_PROVIDER_AUTHENTICATION_SECRET"
+      clientSecretCertificateThumbprint = ""
     }
     default_provider = "AzureActiveDirectory"
 
