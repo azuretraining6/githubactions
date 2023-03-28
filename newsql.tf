@@ -45,3 +45,11 @@ resource "azurerm_mssql_database" "phmdb" {
   special          = true
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
+
+
+resource "azurerm_mssql_firewall_rule" "example" {
+  name             = "FirewallRule1"
+  server_id        = azurerm_mssql_server.phmsqlserver.id
+  start_ip_address = "10.0.17.62"
+  end_ip_address   = "10.0.17.62"
+}
