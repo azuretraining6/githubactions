@@ -62,6 +62,6 @@ resource "azurerm_mssql_firewall_rule" "firewalloop" {
   count = length(var.rules)
 }
 variable "rules" {
-type = string
+type = list(string)
 default = ["10.1.1.1","10.1.1.2","10.1.1.3"]
 }
