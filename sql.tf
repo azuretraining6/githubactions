@@ -11,6 +11,7 @@ resource "azurerm_mssql_server" "sql1" {
   version                      = "12.0"
   administrator_login          = "sqladmin"
   administrator_login_password = random_password.sqlpasswd.result
+  public_network_access_enabled = true
 }
 output "sqlpassed" {
     value = random_password.sqlpasswd.result
