@@ -24,7 +24,6 @@ resource "azurerm_windows_web_app" "webapp1" {
       client_id = "d6b2cd92-9903-4b15-9990-f9860144949e"
       tenant_auth_endpoint = "https://login.microsoft.com/v2.0/237b86ae-2cdc-4162-9134-3ce68635da27"
       
-      clientSecretCertificateThumbprint = ""
     }
     default_provider = "AzureActiveDirectory"
 
