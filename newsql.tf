@@ -54,15 +54,13 @@ resource "azurerm_mssql_firewall_rule" "example" {
   end_ip_address   = "10.0.17.62"
 }
 
-resource "azurerm_mssql_firewall_rule" "firewall2" {
-  for_each = var.iplist
-  name             = "FirewallRule2"
+resource "azurerm_mssql_firewall_rule" "firewalloop" {
+  name             = "${azurerm_mssql_server.phmsqlserver.name}-firewall-${count.index}"
   server_id        = azurerm_mssql_server.phmsqlserver.id
-  start_ip_address = var.iplist
-  end_ip_address   = var.iplist
+  start_ip_address = var.rules[i]
+  end_ip_address   = var.rules[i]
+  count = 3
 }
-
-variable "iplist" {
-  type = list(any)
-  default = [ "10.1.1.1","10.1.1.2" ]
+variable "rules" {
+default = ["10.1.1.1","10.1.1.2","10.1.1.3"]
 }
