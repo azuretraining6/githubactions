@@ -31,10 +31,14 @@ resource "azurerm_mssql_database" "sqldb" {
   tags = {
     foo = "bar"
   }
-}
-resource "azurerm_mssql_firewall_rule" "firewall1" {
-  name             = "FirewallRule1"
-  server_id        = azurerm_mssql_server.sql1.id
-  start_ip_address = "10.0.17.62"
-  end_ip_address   = "10.0.17.62"
-}
+ }
+# resource "azurerm_mssql_firewall_rule" "firewall1" {
+#   for_each = var.ip_list
+#   name             = "FirewallRule1"
+#   server_id        = azurerm_mssql_server.sql1.id
+#   start_ip_address = var.ip_list
+#   end_ip_address   = var.ip_list
+# }
+# variable "ip_list" {
+#   default = ["10.100.10.1","10.100.10.2"]
+# }
