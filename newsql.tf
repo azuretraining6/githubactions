@@ -17,7 +17,7 @@ resource "azurerm_mssql_server" "phmsqlserver" {
   administrator_login          = var.AzureSQLAdminName
   administrator_login_password = random_password.password.result
   minimum_tls_version          = "1.2"
-  public_network_access_enabled = false
+  public_network_access_enabled = true
 
   azuread_administrator {
     login_username = "mpkengineer243"
