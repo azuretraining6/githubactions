@@ -16,11 +16,12 @@ resource "azurerm_windows_web_app" "webapp1" {
   }
   site_config {}
   auth_settings_v2 {
-    enabled = true
+    auth_enabled = true
     runtime_version     = "~2"
-    unauthenticated_client_action = "AllowAnonymous"
-    active_directory {
+    unauthenticated_action = "AllowAnonymous"
+    active_directory_v2 {
       client_id = "8ad8b609-53d1-4fde-9cf2-c8cd01b30906"
+      tenant_auth_endpoint = "https://login.microsoft.com/237b86ae-2cdc-4162-9134-3ce68635da27/v2.0"
     }
     default_provider = "AzureActiveDirectory"
 
