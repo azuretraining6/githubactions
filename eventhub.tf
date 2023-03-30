@@ -27,3 +27,13 @@ resource "azurerm_eventhub" "example" {
   send   = true
   manage = true
 }
+
+ resource "azurerm_eventhub_namespace_authorization_rule" "disk" {
+  name                = "diskrule"
+  namespace_name      = azurerm_eventhub_namespace.example.name
+  resource_group_name = azurerm_resource_group.githubactions.name
+
+  listen = true
+  send   = true
+  manage = true
+}
