@@ -51,7 +51,7 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
     eventhub_name = azurerm_eventhub.example.name
     eventhub_authorization_rule_id = azurerm_eventhub_namespace_authorization_rule.example.id
 
-    log {
+    enabled_log {
         category = "Administrative"
 
         retention_policy {
