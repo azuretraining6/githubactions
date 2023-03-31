@@ -58,3 +58,4 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
         enabled = false
     }
 }
+}
