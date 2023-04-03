@@ -20,19 +20,3 @@ resource "azurerm_monitor_diagnostic_setting" "example" {
     }
   }
 }
-
-resource "azurerm_monitor_diagnostic_setting" "example" {
-    name                           = "example"
-    target_resource_id             = "/subscriptions/39215d40-4caf-49ad-a97f-7dab6ddfe062/resourceGroups/Infracode/providers/Microsoft.KeyVault/vaults/ngknewkvforpltest01"
-
-    eventhub_name = azurerm_eventhub.example.name
-    eventhub_authorization_rule_id = azurerm_eventhub_namespace_authorization_rule.example.id
-
-    enabled_log {
-        category = "Administrative"
-
-        retention_policy {
-        enabled = false
-    }
-}
-}
