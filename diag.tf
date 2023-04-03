@@ -1,6 +1,6 @@
 resource "azurerm_monitor_diagnostic_setting" "example" {
   name               = "example"
-  target_resource_id = azurerm_managed_disk.example.id
+  target_resource_id = data.azurerm_network_interface.vmnic.id
   eventhub_name = azurerm_eventhub.example.name
   eventhub_authorization_rule_id = azurerm_eventhub_namespace_authorization_rule.disk.id
 
