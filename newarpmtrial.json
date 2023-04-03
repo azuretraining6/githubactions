@@ -1,0 +1,69 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [
+      {
+        "name": "ngkstorarmest001",
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2021-04-01",
+        "tags": {
+            "displayName": "storageaccount1"
+        },
+        "location": "[resourceGroup().location]",
+        "kind": "StorageV2",
+        "sku": {
+            "name": "Premium_LRS",
+            "tier": "Premium"
+        }
+      },
+    
+      {
+            "type": "Microsoft.Insights/diagnosticSettings",
+            "apiVersion": "2017-05-01-preview",
+            "name": "ngkarmpolicy",
+            "location": "global",
+            "properties": {
+              "eventHubAuthorizationRuleId": "",
+              "logs": [
+                {
+                  "category": "Administrative",
+                  "enabled": true
+                },
+                {
+                  "category": "Security",
+                  "enabled": true
+                },
+                {
+                  "category": "ServiceHealth",
+                  "enabled": true
+                },
+                {
+                  "category": "Alert",
+                  "enabled": true
+                },
+                {
+                  "category": "Recommendation",
+                  "enabled": true
+                },
+                {
+                  "category": "Policy",
+                  "enabled": true
+                },
+                {
+                  "category": "Autoscale",
+                  "enabled": true
+                },
+                {
+                  "category": "ResourceHealth",
+                  "enabled": true
+                }
+              ]
+            }
+          }
+        
+    ],
+    "outputs": {}
+}
