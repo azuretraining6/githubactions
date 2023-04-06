@@ -5,7 +5,12 @@ resource "azurerm_service_plan" "plan1" {
   sku_name            = "B1"
   os_type             = "Windows"
 }
-
+resource "azurerm_application_insights" "githubactions" {
+  name                = "ngk-test-appinsights"
+  resource_group_name = azurerm_resource_group.githubactions.name
+  location            = azurerm_resource_group.githubactions.location
+  application_type    = "web"
+}
 resource "azurerm_windows_web_app" "webapp1" {
   name                = "ngkauthtestwebapp02"
   resource_group_name = azurerm_resource_group.githubactions.name
@@ -15,8 +20,8 @@ resource "azurerm_windows_web_app" "webapp1" {
     type = "SystemAssigned"
   }
     app_settings = {
-    "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.appinsights01.instrumentation_key
-    "APPLICATIONINSIGHTS_CONNECTION_STRING"           = azurerm_application_insights.appi1.connection_string
+    "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.githubactions.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING"           = azurerm_application_insights.githubactions.connection_string
     
   }
   site_config {}
