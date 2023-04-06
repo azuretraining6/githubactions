@@ -14,6 +14,11 @@ resource "azurerm_windows_web_app" "webapp1" {
   identity {
     type = "SystemAssigned"
   }
+    app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.appinsights01.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING"           = azurerm_application_insights.appi1.connection_string
+    
+  }
   site_config {}
   auth_settings_v2 {
   login {}
