@@ -25,10 +25,10 @@ provider "azurerm" {
   # If you're using version 1.x, the "features" block is not allowed.
   #version = "~>2.0"
   features {}
-  client_id       = "d6b2cd92-9903-4b15-9990-f9860144949e"
-  client_secret   = "RJJ8Q~vyUuFa2fF76tW2GIIhkTjWOADqdvaC1c3f"
-  tenant_id       = "237b86ae-2cdc-4162-9134-3ce68635da27"
-  subscription_id = "39215d40-4caf-49ad-a97f-7dab6ddfe062"
+  client_id       = "13bb216d-a010-4966-8f7f-961fbeac91e9"
+  client_secret   = "HJ18Q~7QFPlHma3MflHbNvRJJ.ZQ_XoQuYzYAb.h"
+  tenant_id       = "130702be-00b7-4474-b52a-8434b7ddb71f"
+  subscription_id = "a9306a86-d5dd-4693-a20e-68b9ef462144"
 
 }
 provider "random" {
