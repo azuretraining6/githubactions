@@ -1,10 +1,10 @@
 terraform {
   
   backend "azurerm" {
-    resource_group_name  = "baserg"
-    storage_account_name = "ngkteststorage001"
+    resource_group_name  = "EASTUS_group"
+    storage_account_name = "stordontdelete001"
     container_name       = "githubtfstate"
-    key                  = "u5owLc5mvzLKSQiQgL72Ucbvi7bM1Bo8buzWkF7NHBB3kpHi9V7zOMc9zJ2yu0V2CB9eYhsc2VvZ+ASte8szgA=="
+    key                  = "17EE5TmZF/jUgk8EJ+q5PmTNab/Xhn5Qs2tdaW38z/XCescw14A9M+DUCxrZc00Nxt2119ELZjcf+AStYBsjvw=="
   }
   
   
