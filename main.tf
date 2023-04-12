@@ -1,7 +1,7 @@
 terraform {
   
   backend "azurerm" {
-    resource_group_name  = "EASTUS_group"
+    resource_group_name  = "eastus_group"
     storage_account_name = "stordontdelete001"
     container_name       = "githubtfstate"
     key                  = "17EE5TmZF/jUgk8EJ+q5PmTNab/Xhn5Qs2tdaW38z/XCescw14A9M+DUCxrZc00Nxt2119ELZjcf+AStYBsjvw=="
