@@ -63,4 +63,7 @@ resource "azurerm_windows_virtual_machine" "example" {
     sku       = "2016-Datacenter"
     version   = "latest"
   }
+  os_profile_windows_config{
+    provision_vm_agent = true
+  }
 }
