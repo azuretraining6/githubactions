@@ -66,7 +66,7 @@ resource "azurerm_windows_virtual_machine" "example" {
 }
 resource "azurerm_virtual_machine_extension" "example" {
  name = "vmdiagnosticsextension"
-
+ 
   publisher                  = "Microsoft.Azure.Diagnostics"
   type                       = "IaaSDiagnostics"
   type_handler_version       = "1.16"
@@ -74,7 +74,7 @@ resource "azurerm_virtual_machine_extension" "example" {
 
   virtual_machine_id = azurerm_windows_virtual_machine.example.id
 
-  settings = templatefile(format("%s/diagnostics.json", path.module), {
+  settings = templatefile(format("%s/diageventhub.json", path.module), {
     resource_id  = azurerm_windows_virtual_machine.example.id
     storage_name = azurerm_storage_account.example.name
     

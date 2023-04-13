@@ -1,0 +1,10 @@
+{
+    "storageAccountName": "${storage_name}",
+    "storageAccountKey": "${azurerm_storage_account.example.primary_access_key}",
+    "storageAccountEndPoint": "https://core.windows.net",
+    "EventHub": {
+        "Url": "https://mpkEventHubNamespace.servicebus.windows.net/mpkeventhub001",
+        "SharedAccessKeyName": "managed",
+        "SharedAccessKey": "{azurerm_eventhub_namespace.example.default_primary_key}"
+    }
+}

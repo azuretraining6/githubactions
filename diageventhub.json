@@ -1,0 +1,38 @@
+{
+    "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+            "overallQuotaInMB": 5120,
+            "PerformanceCounters": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "mpkEventHubNamespace",
+                "PerformanceCounterConfiguration": [
+                    {
+                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                        "sampleRate": "PT3M"
+                    }
+                ]
+            },
+            "WindowsEventLog": {
+                "scheduledTransferPeriod": "PT1M",
+                "sinks": "mpkEventHubNamespace",
+                    "DataSource": [
+                    {
+                        "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                    }
+                ]
+            }
+        },
+        "SinksConfig": {
+            "Sink": [
+                {
+                    "name": "mpkEventHubNamespace",
+                    "EventHub": {
+                        "Url": "https://mpkEventHubNamespace.servicebus.windows.net/mpkeventhub001",
+                        "SharedAccessKeyName": "managed"
+                    }
+                }
+            ]
+        }
+    },
+    "StorageAccount": "${storage_name}"
+}
