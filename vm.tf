@@ -81,8 +81,8 @@ resource "azurerm_virtual_machine_extension" "example" {
 
   protected_settings = <<SETTINGS
   {
-    "storageAccountName": "${var.diagnostics_storage_account_name}",
-    "storageAccountKey": "${var.diagnostics_storage_account_key}"
+    "storageAccountName": "${azurerm_storage_account.example.name}",
+    "storageAccountKey": "${azurerm_storage_account.example.key}"
   }
 SETTINGS
 }
