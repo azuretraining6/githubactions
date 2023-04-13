@@ -63,7 +63,18 @@ resource "azurerm_windows_virtual_machine" "example" {
     sku       = "2016-Datacenter"
     version   = "latest"
   }
-  os_profile_windows_config {
-    provision_vm_agent = true
-  }
+}
+resource "azurerm_virtual_machine_extension" "example" {
+  name                 = "hostname"
+  virtual_machine_id   = azurerm_windows_virtual_machine.example.id
+  publisher            = "Microsoft.Azure.Extensions"
+  type                 = "CustomScript"
+  type_handler_version = "2.0"
+
+  settings = <<SETTINGS
+ {
+  "commandToExecute": "hostname && uptime"
+ }
+SETTINGS
+
 }
