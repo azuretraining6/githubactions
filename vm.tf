@@ -77,12 +77,13 @@ resource "azurerm_virtual_machine_extension" "example" {
   settings = templatefile(format("%s/diagnostics.json", path.module), {
     resource_id  = azurerm_windows_virtual_machine.example.id
     storage_name = azurerm_storage_account.example.name
+    
   })
 
   protected_settings = <<SETTINGS
   {
     "storageAccountName": "${azurerm_storage_account.example.name}",
-    "storageAccountKey": "${azurerm_storage_account.example.key}"
+    "storageAccountKey": "${azurerm_storage_account.example.primary_access_key}"
   }
 SETTINGS
 }
