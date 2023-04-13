@@ -65,16 +65,24 @@ resource "azurerm_windows_virtual_machine" "example" {
   }
 }
 resource "azurerm_virtual_machine_extension" "example" {
-  name                 = "hostname"
-  virtual_machine_id   = azurerm_windows_virtual_machine.example.id
-  publisher            = "Microsoft.Azure.Extensions"
-  type                 = "CustomScript"
-  type_handler_version = "2.0"
+ name = "vmdiagnosticsextension"
 
-  settings = <<SETTINGS
- {
-  "commandToExecute": "hostname && uptime"
- }
+  publisher                  = "Microsoft.Azure.Diagnostics"
+  type                       = "IaaSDiagnostics"
+  type_handler_version       = "1.16"
+  auto_upgrade_minor_version = "true"
+
+  virtual_machine_id = azurerm_windows_virtual_machine.example.id
+
+  settings = templatefile(format("%s/diagnostics.json", path.module), {
+    resource_id  = azurerm_windows_virtual_machine.example.id
+    storage_name = azurerm_storage_account.example.name
+  })
+
+  protected_settings = <<SETTINGS
+  {
+    "storageAccountName": "${var.diagnostics_storage_account_name}",
+    "storageAccountKey": "${var.diagnostics_storage_account_key}"
+  }
 SETTINGS
-
 }
