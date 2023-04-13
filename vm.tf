@@ -87,3 +87,22 @@ resource "azurerm_virtual_machine_extension" "example" {
   }
 SETTINGS
 }
+resource "azurerm_eventhub_namespace" "example" {
+  name                = "mpkEventHubNamespace"
+  location            = azurerm_resource_group.example.location
+  resource_group_name = azurerm_resource_group.example.name
+  sku                 = "Standard"
+  capacity            = 1
+
+  tags = {
+    environment = "Production"
+  }
+}
+
+resource "azurerm_eventhub" "example" {
+  name                = "mpkeventhub001"
+  namespace_name      = azurerm_eventhub_namespace.example.name
+  resource_group_name = azurerm_resource_group.example.name
+  partition_count     = 2
+  message_retention   = 1
+}
