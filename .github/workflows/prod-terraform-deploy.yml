@@ -1,0 +1,58 @@
+name: Prod Terraform Deploy
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: uhg-runner
+    env:
+      TEAM: oon
+      ENVIRONEMT: prod
+      LOCATION: centralus
+      ARM_CLIENT_ID: 296c36be-9e6e-42d7-a43e-9b32919791d0a
+      ARM_CLIENT_SECRET: ${{ secrets.PROD_ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: 6b33a4b6-163d-4ddd-bc24-8744f0b4385d
+      ARM_TENANT_ID: db05faca-c82a-4b9d-b9c5-0f64b6755421
+    name: "Terraform Deploy"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Azure CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Install Terraform
+        run: |
+          sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+          wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+          sudo apt update && sudo apt-get install terraform
+      - name: Az Login
+        run: az login --allow-no-subscriptions --service-principal -u $ARM_CLIENT_ID -p=${{ secrets.PROD_ARM_CLIENT_SECRET }} --tenant $ARM_TENANT_ID
+        timeout-minutes: 1
+      - name: add execute permissiotn to bootstrap
+        run: chmod +x ./bootstrap/prerequisite_resources.sh  
+      - name: Bootstrap
+        run: ./prerequisite_resources.sh $TEAM $ENVIRONEMT $LOCATION
+        working-directory: bootstrap
+      - name: Set TF State Access
+        run: |
+          ARM_ACCESS_KEY=$(az storage account keys list --account-name "st${TEAM}${ENVIRONEMT}tfstate" --query "[0].value" | tr -d '"')
+          echo "ARM_ACCESS_KEY=${ARM_ACCESS_KEY}" >> $GITHUB_ENV
+      - name: "Git Config URL"
+        run: git config --global url."https://${{ secrets.GH_PAT }}@github.com".insteadOf "https://github.com"
+      - name: "Terraform Init Azure Cloud"
+        run: terraform init -backend-config prod/backend.tf
+        working-directory: terraform/azure-cloud
+      - name: "Terraform Plan Azure Cloud"
+        run: terraform plan --var-file prod/variables.tfvars -out tfplan
+        working-directory: terraform/azure-cloud
+      - name: 'Terraform Apply Azure Cloud'
+        run: terraform apply tfplan
+        working-directory: terraform/azure-cloud
+      # - name: "Terraform Init On-Premise"
+      #   run: terraform init -backend-config dce/backend.tf
+      #   working-directory: terraform/on-premise
+      # - name: "Terraform Plan On-Premise"
+      #   run: terraform plan -var 'PriMsId=jgrif106' -var 'PriMsIdPwd=${{ secrets.PRI_MS_ID_PWD }}' -out tfplan
+      #   working-directory: terraform/on-premise
+      # - name: 'Terraform Apply On-Premise'
+      #   run: terraform apply tfplan
+      #   working-directory: terraform/on-premise
