@@ -4,7 +4,7 @@ on:
 
 jobs:
   build:
-    runs-on: uhg-runner
+    runs-on: ubuntu-latest
     env:
       TEAM: oon
       ENVIRONEMT: prod
